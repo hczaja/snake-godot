@@ -24,4 +24,9 @@ func _process(delta):
 	
 	position += velocity * delta
 	
+	if velocity.x != 0:
+		$Sprite2D.flip_h = false
+	if velocity.y != 0:
+		$Sprite2D.flip_v = velocity.y < 0
+	
 	pass
