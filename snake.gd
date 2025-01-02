@@ -2,6 +2,7 @@ extends Area2D
 signal hit
 
 @export var speed = 128
+var direction = Vector2.DOWN
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -9,27 +10,21 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
-	var velocity = Vector2.ZERO
-	
-	if Input.is_action_pressed("move_left"):
-		velocity.x -= 1
-	if Input.is_action_pressed("move_right"):
-		velocity.x += 1
-	if Input.is_action_pressed("move_up"):
-		velocity.y -= 1
-	if Input.is_action_pressed("move_down"):
-		velocity.y += 1
 		
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed
-	
-	position += velocity * delta
-	
-	if velocity.x != 0:
-		$Sprite2D.flip_h = false
-	if velocity.y != 0:
-		$Sprite2D.flip_v = velocity.y < 0
+	if Input.is_action_pressed("move_left"):
+		direction = Vector2.LEFT
+		$Sprite2D.rotation = deg_to_rad(270)
+	if Input.is_action_pressed("move_right"):
+		direction = Vector2.RIGHT
+		$Sprite2D.rotation = deg_to_rad(90)
+	if Input.is_action_pressed("move_up"):
+		direction = Vector2.UP
+		$Sprite2D.rotation = deg_to_rad(0)
+	if Input.is_action_pressed("move_down"):
+		direction = Vector2.DOWN
+		$Sprite2D.rotation = deg_to_rad(180)
+		
+	position += delta * (direction.normalized() * speed)
 
 func start(pos):
 	position = pos
