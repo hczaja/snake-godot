@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://i5lgiiyo3ecy"]
 
-[ext_resource type="Texture2D" uid="uid://b8p8qvv4yrbeu" path="res://apple_green.png" id="1_arkxa"]
+[ext_resource type="Texture2D" uid="uid://b8p8qvv4yrbeu" path="res://assets/apple_green.png" id="1_h1s0p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ljami"]
 
-[node name="Area2D" type="Area2D"]
+[node name="Apple" type="Area2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_arkxa")
+texture = ExtResource("1_h1s0p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ljami")

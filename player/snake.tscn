@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://d3qlr15kapeaw"]
 
-[ext_resource type="Script" path="res://snake.gd" id="1_lfudq"]
-[ext_resource type="Texture2D" uid="uid://b6t2q4e1mscfh" path="res://snake_head.png" id="2_wasth"]
+[ext_resource type="Script" path="res://player/snake.gd" id="1_lfudq"]
+[ext_resource type="Texture2D" uid="uid://b6t2q4e1mscfh" path="res://assets/player/snake_head.png" id="2_wasth"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j1c51"]
 size = Vector2(16, 16)
@@ -17,4 +17,8 @@ texture = ExtResource("2_wasth")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_j1c51")
 
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

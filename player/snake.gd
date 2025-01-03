@@ -1,12 +1,13 @@
 extends Area2D
 signal hit
 
+@export var size = 32
 @export var speed = 128
 var direction = Vector2.DOWN
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$Timer.start(1.0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -23,8 +24,6 @@ func _process(delta):
 	if Input.is_action_pressed("move_down"):
 		direction = Vector2.DOWN
 		$Sprite2D.rotation = deg_to_rad(180)
-		
-	position += delta * (direction.normalized() * speed)
 
 func start(pos):
 	position = pos
@@ -35,3 +34,7 @@ func _on_body_entered(body):
 	hide()
 	hit.emit()
 	$CollisionShape2D.set_deferred("disabled", true)
+
+
+func _on_timer_timeout():
+	position += size * direction.normalized()
