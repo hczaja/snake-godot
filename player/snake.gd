@@ -35,22 +35,22 @@ func _on_timer_timeout():
 	$Head.position += size * $Head.direction.normalized()
 
 
+func _on_apple_eaten():
+	add_body_segment()
+
+
 func add_body_segment():
 	var body_length : int = len(body_segments)
 
 	var body_segment = snake_body_scene.instantiate()
 	if body_length == 0:
-		body_segment.position = $Head.position
+		body_segment.set_deferred("position", $Head.position)
 	else:
-		body_segment.position =  body_segments[len(body_segments) - 1].position
+		body_segment.set_deferred("position", body_segments[len(body_segments) - 1].position)
 	
 	body_segments.append(body_segment)
-	add_child(body_segment)
+	call_deferred("add_child", body_segment)
 
 
 func clear_body_segments():
 	body_segments.clear()
-
-
-func _on_apple_eaten():
-	add_body_segment()
