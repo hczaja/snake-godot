@@ -2,14 +2,16 @@ extends Area2D
 signal hit
 
 @export var size = 32
-@export var speed = 128
+@export var speed = 0.5
+
 var direction = Vector2.DOWN
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	$Timer.start(1.0)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	$Timer.start(speed)
+	
+	direction = Vector2.DOWN
+	$Sprite2D.rotation = deg_to_rad(180)
+	
 func _process(delta):
 		
 	if Input.is_action_pressed("move_left"):
