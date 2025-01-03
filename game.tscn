@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cev6lip368iyw" path="res://map/map.tscn" id="1_72t5y"]
 [ext_resource type="PackedScene" uid="uid://i5lgiiyo3ecy" path="res://apple/apple.tscn" id="2_rtea0"]
-[ext_resource type="PackedScene" uid="uid://d3qlr15kapeaw" path="res://player/snake.tscn" id="3_btv8v"]
+[ext_resource type="PackedScene" uid="uid://b2bn61e4wmvbh" path="res://player/snake.tscn" id="3_btv8v"]
 
 [node name="game" type="Node2D"]
 
@@ -15,5 +15,5 @@ position = Vector2(112, 48)
 position = Vector2(16, 16)
 
 [node name="Camera2D" type="Camera2D" parent="Snake"]
-scale = Vector2(0.5, 0.5)
+position = Vector2(16, 16)
 position_smoothing_enabled = true

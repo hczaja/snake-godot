@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 project/assembly_name="snake2"
 
+[global_group]
+
+Apple=""
+Player=""
+
 [input]
 
 move_right={
