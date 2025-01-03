@@ -13,7 +13,3 @@ position = Vector2(112, 48)
 
 [node name="Snake" parent="." instance=ExtResource("3_btv8v")]
 position = Vector2(16, 16)
-
-[node name="Camera2D" type="Camera2D" parent="Snake"]
-position = Vector2(16, 16)
-position_smoothing_enabled = true

@@ -10,6 +10,9 @@ snake_body_scene = ExtResource("2_3uvvv")
 
 [node name="Head" parent="." instance=ExtResource("2_cois8")]
 
+[node name="Camera2D" type="Camera2D" parent="Head"]
+position_smoothing_enabled = true
+
 [node name="Timer" type="Timer" parent="."]
 
 [connection signal="eats_apple" from="Head" to="." method="_on_apple_eaten"]
